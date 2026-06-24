@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Poppins:wght@600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero-top">
+        <div class="logo-badge">
+          <span class="logo-mark">🍳</span>
+          <div>
+            <p class="brand-name">Marilja's Kitchen</p>
+            <p class="brand-note">Homestyle recipes with heart</p>
+          </div>
+        </div>
+        <div class="header-meta">
+          <span id="favorite-count" class="favorite-count">0 saved</span>
+          <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">🌙</button>
+          <nav class="hero-nav" aria-label="Main navigation">
+            <a href="#recipe-list">All Recipes</a>
+            <a href="#search">Search</a>
+            <a href="#contact">About</a>
+          </nav>
+        </div>
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Recipe collection</p>
+        <h1>Simple, colorful recipes for every meal</h1>
+        <p>Browse easy-to-follow cooking ideas with clear ingredients, step-by-step instructions, and cheerful meal inspiration.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="featured-recipe" class="featured-card"></section>
+
+      <section id="search" class="search-bar">
+        <label for="recipe-search">Search recipes</label>
+        <div class="search-input-group">
+          <input id="recipe-search" type="search" placeholder="Search by name or ingredient..." />
+          <button id="clear-search" type="button" class="clear-btn">Clear</button>
+        </div>
+        <div class="tag-filters" id="tag-filters" aria-label="Recipe category filters"></div>
+      </section>
+
+      <section id="country-selector" class="country-card">
+        <div class="country-card-header">
+          <p class="eyebrow">World flavors</p>
+          <h2>Traditional dishes by country</h2>
+        </div>
+        <div class="country-select-group">
+          <label for="country-select">Choose a country</label>
+          <select id="country-select"></select>
+        </div>
+        <div id="country-dishes" class="country-dishes" aria-live="polite"></div>
+      </section>
+
+      <section id="recipe-list" class="recipe-list"></section>
+
+      <section id="contact" class="about-card">
+        <h2>About Marilja's Kitchen</h2>
+        <p>Welcome to my recipe collection! I design warm, satisfying meals that are easy to cook and bright on the plate. Follow step-by-step instructions, gather fresh ingredients, and enjoy simple recipes for breakfast, lunch, and dinner.</p>
+      </section>
+
+      <section id="rating" class="rating-card">
+        <div class="rating-header">
+          <p class="eyebrow">Rate us</p>
+          <h2>Give a star rating</h2>
+        </div>
+        <p>Leave a short star rating about the page content and style.</p>
+        <div class="star-rating" aria-label="Rate with stars">
+          <button class="star" data-value="1" type="button" aria-label="1 star">★</button>
+          <button class="star" data-value="2" type="button" aria-label="2 stars">★</button>
+          <button class="star" data-value="3" type="button" aria-label="3 stars">★</button>
+          <button class="star" data-value="4" type="button" aria-label="4 stars">★</button>
+          <button class="star" data-value="5" type="button" aria-label="5 stars">★</button>
+        </div>
+        <div class="rating-summary">
+          <span><strong>Average:</strong> <span id="rating-average">0.0</span></span>
+          <span id="rating-count">0 votes</span>
+          <span id="last-rating" class="last-rating"></span>
+        </div>
+        <div class="comment-box">
+          <label for="comment-input">Add a comment</label>
+          <textarea id="comment-input" rows="3" placeholder="Write your comment here..."></textarea>
+          <button id="submit-comment" type="button" class="clear-btn">Post comment</button>
+        </div>
+        <div class="comment-list" id="comment-list"></div>
+      </section>
+    </main>
+
+    <div id="recipe-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-content">
+        <button id="modal-close" class="modal-close" aria-label="Close recipe details">×</button>
+        <article class="modal-recipe">
+          <header>
+            <p class="eyebrow">Recipe details</p>
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+            <div class="recipe-meta" id="modal-meta"></div>
+          </header>
+          <div class="recipe-body">
+            <section>
+              <h3>Ingredients</h3>
+              <ul id="modal-ingredients"></ul>
+            </section>
+            <section>
+              <h3>Instructions</h3>
+              <ol id="modal-instructions"></ol>
+            </section>
+          </div>
+          <button id="modal-print" class="favorite-btn">Print recipe</button>
+        </article>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <p>Recipe Website • Built for easy cooking inspiration</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
